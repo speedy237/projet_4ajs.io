@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h4 class="modal-title">Warning You Attemted to delete "{{ title }} "</h4>
+      <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      Type de the name of an  item below and press the ok button to continue or press cancel to cancel the operation
+      <input (keyup)="onKey($event)" >
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="decline()">{{ btnCancelText }}</button>
+      <button type="button" class="btn btn-primary" (click)="accept()">{{ btnOkText }}</button>
+    </div>

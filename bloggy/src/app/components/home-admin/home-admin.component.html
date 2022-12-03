@@ -1,0 +1,33 @@
+<app-header></app-header>
+<h1 class="text-center">Home Administration Page </h1>
+<div style="width: 50rem;">
+</div>
+<div class="container " style="width: 50rem;">
+    <a routerLink="/post"><button class="btn btn-success mb-2 pull-right"><i class="material-icons">add</i>Create Post</button></a>
+<table class="table table-bordered">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Date</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let post of posts">
+        <tr>
+            <td>{{post.id}}</td>
+            <td><img [src]="post.image_url" class="tiny"></td>
+            <td>{{post.title}}</td>
+            <td>{{post.author_id}}</td>
+            <td><span>{{post.created_at | date:"dd/MM/yyyy"}}</span></td>
+            <td> 
+                <a routerLink="/update/{{post.id}}"><i class="material-icons">edit</i></a> 
+                <i><span> </span></i>
+                <i class="material-icons" (click)="openConfirm(post)">delete</i> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
