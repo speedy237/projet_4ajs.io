@@ -1,0 +1,25 @@
+<app-header></app-header>
+<h1 class="text-center">AUTHENTIFICATION</h1>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" id="login"  name="login" [(ngModel)]="login">
+        </div>
+        <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" name="pass" id="pass" [(ngModel)]="pass" >
+
+        </div>
+        <div class="form-group">
+            <a routerLink="/new" class="text-center">You don't have Account !!!!  , Create</a>
+
+            <label for="save"></label>
+          <input type="button" class="form-control  bg-primary" id="save" placeholder="save" value="save" (click)="connection()">
+
+        </div>
+
+
+    </form>
+
+</div>

@@ -8,6 +8,7 @@ import { Post } from '../classes/post';
 })
 export class PostService {
   private post_url='http://103296.bloggy.ecole-it.devigne.space/posts/';
+  config=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
 
   constructor(private http:HttpClient) { }
 
@@ -19,21 +20,22 @@ export class PostService {
   }
   public addPost(p:Post){
     console.log('debut de la requette')
-    const config=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
-    this.http.post<Post>('http://103296.bloggy.ecole-it.devigne.space/posts/', JSON.stringify(p),{headers:config}).subscribe(data=>{
+    //const config=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
+    this.http.post<Post>('http://103296.bloggy.ecole-it.devigne.space/posts/', JSON.stringify(p),{headers:this.config}).subscribe(data=>{
       console.log(data);
       console.log('process');
 
     }, error=>{
       console.log(error);
+      alert(error)
     }
     );
   }
   public updatePost(id:number,value:Post){
-    const config=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
+    //const config=new HttpHeaders().set('Content-Type','application/json').set('Accept','application/json');
     this.post_url=this.post_url+id+'/';
     console.log(this.post_url);
-    this.http.put<Post>('http://103296.bloggy.ecole-it.devigne.space/posts/'+id,JSON.stringify(value),{headers:config}).subscribe(data=>{
+    this.http.put<Post>('http://103296.bloggy.ecole-it.devigne.space/posts/'+id,JSON.stringify(value),{headers:this.config}).subscribe(data=>{
       console.log(data);
       console.log('process');
     }, error=>{
@@ -43,9 +45,9 @@ export class PostService {
   }
   public deletePost(id:number):Observable<any>{
     console.log('process');
-    //const url='http://103296.bloggy.ecole-it.devigne.space/posts/'+id+"/";
+    const url='http://103296.bloggy.ecole-it.devigne.space/posts/'+id;
     //console.log(url);
     console.log(id);
-    return this.http.delete(`${this.post_url}/${id}/`);
+    return this.http.delete(url,{headers:this.config});
   }
 }

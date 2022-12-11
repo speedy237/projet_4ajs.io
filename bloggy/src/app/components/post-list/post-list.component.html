@@ -1,25 +1,25 @@
 <div class="container " style="width: 50rem;">
     <div class="row">
         <div *ngFor="let post of posts">
-        <div class="card-horizontal  container d-flex flex-row">
-            <div class="card-image">
-                <img [src]="post.image_url" class="tiny">
+        <div class="card  container d-flex flex-row">
+            <div class="card-img-top">
+                <img [src]="post.image_url" class="w-50">
 
             </div>
             <div style="width: 5rem;"></div>
-            <div class="card-starked">
-                <div class="card-content">
+            <div class="card-body">
+                <div class="card-text">
                     <div class="d-flex flex-row">
                         <h5 class="text-center font-weight-bold">{{post.title}}</h5>
                         <p style="width: 18rem;"></p>
-                        <p class="text-right" >{{post.created_at}}</p>
+                        <p class="text-right" >{{post.created_at | date:"dd/MM/yyyy"}}</p>
 
                     </div>
                     
                     <p class="text-center" >{{post.resume}}</p>
                     <br/>
                     <br/>
-                    <p class="text-center"><a href="#" class="btn btn-primary text-center">Read More </a></p>
+                    <p class="text-center"><a routerLink="/view/{{post.id}}" class="btn btn-primary text-center">Read More </a></p>
                     
 
                 </div>

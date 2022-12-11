@@ -24,19 +24,27 @@ export class NewPostComponent implements OnInit {
     })
   }
   public savePost(){
+    console.log(this.post);
     
-    
-    this.post.created_at=new Date();
-    this.postService.getPosts().subscribe(data=>{
-      this.posts=data;
-    })
-    this.post.id=this.posts.length+1;
-    console.log(this.post.author_id);
-    console.log(this.post.id);
+    if(this.post.title==null){
+      alert("You must fill all the fields");
+    }
+    else{
 
-    this.postService.addPost(this.post);
-    console.log('fin de la requette');
-    this.post=new Post();
+      this.post.created_at=new Date();
+      this.postService.getPosts().subscribe(data=>{
+        this.posts=data;
+      })
+      this.post.id=this.posts.length+1;
+      console.log(this.post.author_id);
+      console.log(this.post.id);
+  
+      this.postService.addPost(this.post);
+      console.log('fin de la requette');
+      this.post=new Post(); 
+
+    }
+    
 
     
 

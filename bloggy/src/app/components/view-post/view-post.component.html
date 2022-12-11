@@ -1,12 +1,19 @@
 <app-header></app-header>
-<div class="card" style="width: 18rem ;">
-    <img class="card-img-top" [src]="post.image_url">
-    <div class="card-body">
+<h1 class="text-center">Detail Post</h1>
+<div class="col"></div>
+<div class="container">
+    <div class="card text-center" style="width: 50rem ;">
         <div class="card-title d-flex flex-row ">
             <h4>{{post.title}}</h4>
             <p class="col"></p>
-            <h5 class="text-danger"> par {{post.author_id}}</h5>
+            <h5 class="text-danger"> par {{author.full_name}}</h5>
         </div>
-        <p class="card-text">{{post.content}}</p>
+        <img class="card-img-top w-50" [src]="post.image_url">
+        <div class="card-body">
+            
+            <p class="card-text">{{post.content}}</p>
+        </div>
     </div>
+    
+
 </div>

@@ -13,6 +13,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { FormsModule } from '@angular/forms';
 import { UpdatePostComponent } from './components/update-post/update-post.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { LoginComponent } from './components/login/login.component';
+import { CreateComponent } from './components/create/create.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     HomeAdminComponent,
     NewPostComponent,
     UpdatePostComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    LoginComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
